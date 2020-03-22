@@ -6,5 +6,7 @@ urlpatterns = [
     path('', views.test, name='home'),
    # path('/', views.complaints_form),
     path('list/', views.complaints_records),
-    path('forms/', views.complaints_form)
+    path('forms/', views.complaints_form),
+    path('csv/', views.getfile)
+    
 ]

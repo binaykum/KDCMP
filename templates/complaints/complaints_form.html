@@ -3,7 +3,7 @@
 {% block content %}
 <p style="margin-top: 259px;">hello world form</p>
 
-<form method="POST" action="">
+<form method="post" action="" novalidate>
     {% csrf_token %}
 
     {% if messages %}
@@ -17,6 +17,6 @@
     <div>
         {{ form.as_p}}
     </div>
-    <button type="submit" >SUBMIT</button>
+    <button type="submit" >Submit</button>
 </form>
 {% endblock content %}

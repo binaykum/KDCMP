@@ -1,8 +1,9 @@
-from django.shortcuts import render, HttpResponse,HttpResponseRedirect
+from django.shortcuts import render
 from complaints.models import Villagename,Complaints
-from complaints.forms import complaints_form
+from complaints.forms import complaints_form, village_form
 from django.contrib import messages
 import csv
+from django.http import HttpResponseRedirect, HttpResponse
 
 def complaints_records(request):
     obj= Complaints.objects.all
@@ -13,16 +14,16 @@ def complaints_form1(request):
         form= complaints_form(request.POST)
         if form.is_valid():
             try:
-                form.save
-                messages.info(request, 'changes saved')
-                return HttpResponseRedirect('/list/')
+                form.save()
+                messages.info(request, 'form saved ')
+                return HttpResponseRedirect('#')
          
             except:
-                messages.success(request, 'exception from')
+                messages.success(request, ' from')
             
     else:
         form = complaints_form
-        messages.success(request, 'changes not saved from else')
+        messages.success(request, 'exception from elsse')
     return render(request,"complaints/complaints_form.html", {'form': form})
 
 def index(request):
@@ -42,3 +43,26 @@ def getfile(request):
     for villagename in villagename:  
         writer.writerow([villagename.srno,villagename.villagename])  
     return response
+
+# follwing function not used as of now
+def complaints_form2(request):
+    if request.method == "GET" :
+        form = village_form
+        messages.success(request, 'exception from elsse')
+        return render(request,"complaints/complaints_form.html", {'form': form})
+
+    else:
+        form= village_form(request.POST)
+        if form.is_valid():
+            try:
+                form.save()
+                messages.info(request, 'form saved ')
+                
+                print ("reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
+                return HttpResponseRedirect('#')
+         
+            except:
+                messages.success(request, ' from except')
+            
+    
+            

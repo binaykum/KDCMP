@@ -15,3 +15,9 @@ class complaints_form(forms.ModelForm):
         model= Complaints
         fields=['slno', 'complainno','subject','villagename','actionby','status','remarks']
     
+
+class village_form(forms.ModelForm):
+    
+    class Meta():
+        model= Villagename
+        fields='__all__'

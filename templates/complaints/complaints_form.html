@@ -1,5 +1,22 @@
 {% extends "complaints/base.html"%}
 
 {% block content %}
-<p>hello world</p>
+<p style="margin-top: 259px;">hello world form</p>
+
+<form method="POST" action="">
+    {% csrf_token %}
+
+    {% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+    <div>
+        {{ form.as_p}}
+    </div>
+    <button type="submit" >SUBMIT</button>
+</form>
 {% endblock content %}

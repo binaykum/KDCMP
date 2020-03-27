@@ -1,5 +1,16 @@
 {% extends "complaints/base.html" %}
 
 {% block content %}
-<p>hello world list</p>
+<p style="margin-top: 259px;">hello world form</p>
+
+
+{% if complainllist %}
+    <ul>
+    {% for compln in complainllist %}
+        <li><a>{{ compln.slno }}  </a>   <a>{{ compln.remarks }}  </a> </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No complaints are available.</p>
+{% endif %}
 {% endblock content %}

@@ -15,9 +15,12 @@ class Complaints(models.Model):
     subject = models.CharField(max_length=450)
     villagename = models.ForeignKey('Villagename', models.DO_NOTHING, db_column='villageName')  # Field name made lowercase.        
     actionby = models.CharField(db_column='actionBy', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    status = models.CharField(max_length=10, blank=True, null=True)
+    status = models.TextField( blank=True, null=True)
+    #status = models.CharField(max_length=10, blank=True, null=True)
     remarks = models.CharField(max_length=45, blank=True, null=True)
-
+    
+    def __str__(self):
+        return self.complainno
     class Meta:
         db_table = 'complaints'
 

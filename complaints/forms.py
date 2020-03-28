@@ -13,7 +13,8 @@ class complaints_form(forms.ModelForm):
     
     class Meta():
         model= Complaints
-        fields=['slno', 'complainno','subject','villagename','actionby','status','remarks']
+    #    fields=['slno', 'complainno','subject','villagename','actionby','status','remarks']
+        fields = '__all__'
     
 
 class village_form(forms.ModelForm):
